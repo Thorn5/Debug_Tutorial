@@ -1,10 +1,10 @@
-// localStorage.clear();
-// localStorage.setItem("1", "My ToDo 1|false");
-// localStorage.setItem("2", "My ToDo 2 (checked)|true");
-// localStorage.setItem("3", "My ToDo 3|false");
-// localStorage.setItem("4", "My ToDo 4 (checked)|true");
-// localStorage.setItem("5", "My ToDo 5|false");
-// localStorage.setItem("6", "My ToDo 6|false");
+localStorage.clear();
+localStorage.setItem("1", "My ToDo 1|false");
+localStorage.setItem("2", "My ToDo 2 (checked)|true");
+localStorage.setItem("3", "My ToDo 3|false");
+localStorage.setItem("4", "My ToDo 4 (checked)|true");
+localStorage.setItem("5", "My ToDo 5|false");
+localStorage.setItem("6", "My ToDo 6|false");
 
 function addTaskListener() {
   const taskPlus = document.querySelector(".addTask.plusSign");
@@ -57,6 +57,7 @@ function getLocalstorage() {
       document.getElementById(taskID + "TaskZone").innerHTML = strippedText;
       document.getElementById(taskID).style.gridColumnStart = "3";
       document.getElementById(taskID).className = "gridContainer cardGrid clicked task";
+      document.getElementById(taskID).children[0].children[0].checked = true;
     }
     removeTaskListener();
     //hamburgerListener();
@@ -141,8 +142,21 @@ function removeTaskListenerClick() {
 
 function checkboxListener() {
   const checkbox = document.getElementsByClassName("checkBoxGrid");
-  for (let i = 0; i < checkbox.length; i++) {
+  for (let i = 0; i < checkbox.length; i++) { 
     checkbox[i].outerHTML = checkbox[i].outerHTML; //strip stacked listeners
+    // let taskID = "task" + (i + 1);
+    // const localstorageArray = String(localStorage.getItem(i + 1)).split("|");
+    // let checkboxStatus = localstorageArray[1]
+    // if (checkboxStatus == "true") {
+    //   const taggedText = document.getElementById(taskID + "TaskZone").innerHTML;
+    //   let strippedText = String(taggedText);
+    //   strippedText = strippedText.replace("<h3>", "<s>");
+    //   strippedText = strippedText.replace("</h3>", "</s>");
+    //   document.getElementById(taskID + "TaskZone").innerHTML = strippedText;
+    //   document.getElementById(taskID).style.gridColumnStart = "3";
+    //   document.getElementById(taskID).className = "gridContainer cardGrid clicked task";
+    //   document.getElementById(taskID).children[0].children[0].checked = true;
+    // }
     checkbox[i].addEventListener("change", function () {
       if (this.children[0].checked) {
         this.parentElement.style.gridColumnStart = "3";
