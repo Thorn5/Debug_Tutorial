@@ -49,7 +49,7 @@ function getLocalstorage() {
     const checkbox = document.getElementsByClassName("checkBoxGrid");
     checkbox[i].outerHTML = checkbox[i].outerHTML; //strip stacked listeners
     let checkboxStatus = localstorageArray[1]
-    if (checkboxStatus === "True") {
+    if (checkboxStatus === "true") {
       const taggedText = document.getElementById(taskID + "TaskZone").innerHTML;
       let strippedText = String(taggedText);
       strippedText = strippedText.replace("<h3>", "<s>");
