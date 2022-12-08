@@ -193,40 +193,6 @@ function checkboxListener() {
   }
 }
 
-function checkboxListeners() {
-  const checkbox = document.getElementsByClassName("checkBoxGrid");
-  for (let i = 0; i < checkbox.length; i++) {
-    const localstorageArray = String(localStorage.getItem(i + 1)).split("|");
-    const taskName = localstorageArray[0]
-    let checkboxStatus = localstorageArray[1]
-    checkbox[i].outerHTML = checkbox[i].outerHTML; //strip stacked listeners
-    const checkboxID = "task" + (i + 1) + "checkbox";
-    const checkStatus = localstorageArray[1];
-    document.getElementById(checkboxID)
-    checkbox[i].addEventListener("change", function () {
-      if (this.children[0].checked = true) {
-        this.parentElement.style.gridColumnStart = "3";
-        const taggedText = this.parentElement.children[1].innerHTML;
-        let strippedText = String(taggedText);
-        strippedText = strippedText.replace("<h3>", "<s>");
-        strippedText = strippedText.replace("</h3>", "</s>");
-        const newText = this.parentElement.children[1].innerHTML = strippedText;
-        this.parentElement.className = "gridContainer cardGrid clicked task";
-        localStorage.setItem((i + 1), [document.getElementById(`task${i + 1}TaskZone`).textContent + "|" + true]);
-      } else {
-        const taggedText = this.parentElement.children[1].innerHTML;
-        let strippedText = String(taggedText);
-        strippedText = strippedText.replace("<s>", "<h3>");
-        strippedText = strippedText.replace("</s>", "</h3>");
-        this.parentElement.style.gridColumnStart = "2";
-        const restoredText = this.parentElement.children[1].innerHTML = strippedText;
-        this.parentElement.className = "gridContainer cardGrid task";
-        localStorage.setItem((i + 1), [document.getElementById(`task${i + 1}TaskZone`).textContent + "|" + false]);
-      }
-    })
-  }
-}
-
 function renameTodoListener() {
   const todoText = document.getElementsByClassName("taskZone");
   for (let i = 0; i < todoText.length; i++) {
