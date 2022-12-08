@@ -12,57 +12,82 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display&display=swap" rel="stylesheet" />
 </head>
-<body onresize="resizeLogo()">
 
-  <div class="gridContainer LogoContainer" id="LogoContainer">
-  
-    <div class="gridContainer T-logoGrid">
-      <div class="T-topBar"></div>
-      <div class="T-vertBar"></div>
-    </div>
-
-    <div class="gridContainer roundCheckGrid">
-      <div class="gridContainer checkGrid">
-        <div class="circleCutterElement"></div>
-        <div class="checkShort"></div>
-        <div class="checkLong"></div>
-      </div>
-      <div class="roundCheckCircle">
-      </div>
-    </div>
-
-    <div class="gridContainer D-logoGrid">
-      <div class="D-vertLine"></div>
-      <div class="D-horLine1"></div>
-      <div class="D-horLine2"></div>
-      <div class="D-curve"></div>
-    </div>
-
-    <div class="gridContainer roundCheckGrid">
-      <div class="gridContainer checkGrid">
-        <div class="circleCutterElement"></div>
-        <div class="checkShort"></div>
-        <div class="checkLong"></div>
-      </div>
-      <div class="roundCheckCircle">
-      </div>
-    </div>
-  </div>
+<body onresize="resizeLogo()" onload="resizeLogo()">
   
   <div class="gridContainer mainGrid">
     <header>
-      <div class="gridContainer addTask signBuffer">
+      <div class="gridContainer headerGrid">
+
         <div class="gridContainer addTask plusSign" id="addTask">
           <div class="addTask plusLine vertical" id="addTaskVertical"></div>
           <div class="addTask plusLine horizontal" id="addTaskHorizontal"></div>
         </div>
+
+        <div class="gridContainer LogoContainer" id="LogoContainer">
+
+          <div class="gridContainer T-logoGrid">
+            <div class="T-topBar"></div>
+            <div class="T-vertBar"></div>
+          </div>
+
+          <div class="gridContainer roundCheckGrid">
+            <div class="gridContainer checkGrid">
+              <div class="circleCutterElement"></div>
+              <div class="checkShort"></div>
+              <div class="checkLong"></div>
+            </div>
+            <div class="roundCheckCircle">
+            </div>
+          </div>
+
+          <div class="gridContainer D-logoGrid">
+            <div class="D-vertLine"></div>
+            <div class="D-horLine1"></div>
+            <div class="D-horLine2"></div>
+            <div class="D-curve"></div>
+          </div>
+
+          <div class="gridContainer roundCheckGrid">
+            <div class="gridContainer checkGrid">
+              <div class="circleCutterElement"></div>
+              <div class="checkShort"></div>
+              <div class="checkLong"></div>
+            </div>
+            <div class="roundCheckCircle">
+            </div>
+          </div>
+        </div>
+
       </div>
+
+
     </header>
     <div class="gridContainer bodyGrid" id="bodyGrid">
-    
-    
+
+      <!-- Cards appear here -->
+
     </div>
-    <footer>footer</footer>
+    <footer class="footers">
+      <div class="dates1">
+        <h3><span id="clock"></span></h3>
+      </div>
+      <div class="dates2">
+        <h3><span id="clock2"></span></h3>
+      </div>
+      <div class="opentasks1">
+        <h3>open tasks</h3>
+      </div>
+      <div class="opentasks2">
+        <h4><span id="ot"></span></h4>
+      </div>
+      <div class="copy">
+        <h4>
+          <p>&copy; WBS Coding School ToDoList-Team 3</p>
+        </h4>
+      </div>
+    </footer>
   </div>
 </body>
-</html>
+
+</html> 
