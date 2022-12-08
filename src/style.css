@@ -1,43 +1,354 @@
-* {
-    box-sizing: border-box;
+body {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
 }
 
-html {
+.gridContainer {
+  display: grid;
+  align-content: center;
+  overflow: hidden;
+}
+
+
+.addTask.plusSign {
+  justify-self: center;
+  align-self: flex-end;
+  margin-bottom: 7px;
+}
+
+.addTask.plusLine {
+  background-color: cornflowerblue;
+}
+
+.LogoContainer {
+  grid-template-columns: 93px 150px 150px auto;
+  grid-template-rows: 1fr;
+  justify-content: center;
+  align-self: center;
+  grid-column-start: 2;
+}
+
+.T-logoGrid {
+  grid-template-columns: 53fr 16fr 53fr;
+  grid-template-rows: 3fr 26fr;
+  height: 145px;
+  width: 122px;
+}
+
+.T-topBar {
+  display: flex;
+  background-color: black;
+  grid-column-start: 1;
+  grid-column-end: -1;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.T-vertBar {
+  display: flex;
+  background-color: black;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: -1;
+}
+
+.roundCheckGrid {
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 8fr 5fr;
+  height: 115px;
+  width: 115px;
+  align-self: flex-end;
+  overflow: visible;
+}
+
+.roundCheckCircle {
+  display: flex;
+  border: 16px solid black;
+  grid-column-start: 1;
+  grid-column-end: -1;
+  grid-row-start: 1;
+  grid-row-end: -1;
+  border-radius: 50%;
+}
+
+.circleCutterElement {
+  display: flex;
+  grid-column-start: 2;
+  grid-column-end: -1;
+  grid-row-start: 2;
+  grid-row-end: -1;
+  background-color: whitesmoke;
+  z-index: 1;
+}
+
+.checkGrid {
+  grid-template-columns: 16px 1fr;
+  grid-template-rows: 1fr 10px 16px 10px;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  align-self: flex-end;
+  rotate: -45deg;
+  z-index: 2;
+  height: 50px;
+  width: 90px;
+}
+
+.checkShort {
+  background-color: black;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: -2;
+  z-index: 2;
+}
+
+.checkLong {
+  background-color: black;
+  grid-column-start: 1;
+  grid-column-end: -1;
+  grid-row-start: -3;
+  grid-row-end: -2;
+  z-index: 2;
+}
+
+.D-logoGrid {
+  grid-template-columns: 16px 1fr 2fr;
+  grid-template-rows: 16fr 113fr 16fr;
+  height: 145px;
+  width: 125px;
+}
+
+.D-vertLine {
+  display: flex;
+  background-color: black;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: -1;
+}
+
+.D-horLine1 {
+  display: flex;
+  background-color: black;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.D-horLine2 {
+  display: flex;
+  background-color: black;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: -2;
+  grid-row-end: -1;
+}
+
+.D-curve {
+  /* border: 16px solid black; */
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: -1;
+  border-top: 16px solid black;
+  border-bottom: 16px solid black;
+  border-right: 16px solid black;
+  border-top-right-radius: 333px;
+  border-bottom-right-radius: 333px;
+}
+
+.mainGrid {
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr 100px;
+  height: 100vh;
+  background-color: whitesmoke;
+}
+
+.headerGrid {
+  grid-template-columns: 57px 1fr 57px;
+}
+
+.bodyGrid {
+  grid-template-columns: 30px 50px 1fr 30px;
+  /* background-color: whitesmoke; */
+  overflow-y: scroll;
+  align-content: flex-start;
+  row-gap: 1px;
+}
+
+.cardGrid {
+  /* container for card subgrids */
+  grid-template-columns: auto 1fr auto auto;
+  height: 50px;
+  border-radius: 15px;
+  border: 1px solid grey;
+  background-color: rgb(218, 218, 218);
+}
+
+.cardGrid.clicked {
+  background-color: rgb(160, 160, 160);
+}
+
+.task.cardGrid {
+  /* defines how task grid connects to page body grid */
+  grid-column-start: 2;
+  grid-column-end: 4;
+}
+
+.taskChild.cardGrid {
+  grid-column-start: 3;
+  grid-column-end: 4;
+}
+
+.checkBoxGrid {
+  grid-template-columns: 14px 22px 14px;
+  grid-template-rows: 14px 22px 14px;
+}
+
+input {
+  grid-column-start: 2;
+  grid-row-start: 2;
+  display: inline-flex;
+  cursor: pointer;
+}
+
+.taskZone {
+  height: 50px;
+  grid-column-start: 2;
+  font-family: "Red Hat Display", sans-serif;
+}
+
+.signBuffer {
+  grid-template-columns: 19px 19px 19px;
+  grid-template-rows: 1fr 19px 1fr;
+}
+
+.plusSign {
+  grid-template-columns: 8px 3px 8px;
+  grid-template-rows: 8px 3px 8px;
+}
+
+.plusSign.removeTask {
+  transform: rotate(45deg);
+  grid-column-start: 2;
+  grid-row-start: 2;
+}
+
+.plusLine {
+  display: flex;
+  border-radius: 2px;
+  background-color: orangered;
+}
+
+.vertical.plusLine {
+  grid-column: 2/3;
+  grid-row: 1/4;
+}
+
+.horizontal.plusLine {
+  grid-column: 1/4;
+  grid-row: 2/3;
+}
+
+.hamburgerMenuBuffer {
+  grid-template-columns: 15px 20px 15px;
+  grid-template-rows: 1fr 15px 1fr;
+  grid-column-start: 4;
+}
+
+.hamburgerMenu {
+  grid-template-columns: 20px;
+  grid-template-rows: 3px 3px 3px 3px 3px;
+  grid-column-start: 2;
+  grid-row-start: 2;
+  justify-content: center;
+}
+
+.hamburgerStripe {
+  display: flex;
+  border-radius: 2px;
+  background-color: blue;
+}
+
+.hamburgerStripe1.hamburgerStripe {
+  grid-column-start: 1;
+  grid-row-start: 1;
+}
+
+.hamburgerStripe2.hamburgerStripe {
+  grid-column-start: 1;
+  grid-row-start: 3;
+}
+
+.hamburgerStripe3.hamburgerStripe {
+  grid-column-start: 1;
+  grid-row-start: 5;
 
 }
 
-html {
-  font-size: 62.5%; /* 1rem = 10px */
-  -webkit-text-size-adjust: none; /* for iOS Safari */
-  text-size-adjust: none; /* for other mobile browsers */
+
+.footers{
+  display: grid;
+  grid-template-columns: 40% 20% 40%;
+  grid-template-rows: 25% 25% 25% 25%;
+  font-family: "Red Hat Display", sans-serif;
+  justify-content: center;
+  background-color:whitesmoke;
+  
 }
 
-img {
-    display: block;
-    max-width: 100%;
+.dates1{
+  grid-column-start:1; 
+  grid-column-end:2; 
+  grid-row-start:1; 
+  grid-row-end:2; 
+  align-self: center;
+  justify-self: center;
+  font-weight: bold;
 }
 
-menu, ol, ul {
-    padding-left: 0;
+.dates2{
+  grid-column-start:1; 
+  grid-column-end:2; 
+  grid-row-start:2; 
+  grid-row-end:3; 
+  align-self: center;
+  justify-self: center;
+  font-weight: bold;
 }
 
-label, button, select, summary, [type=radio], [type=submit], [type=checkbox] {
-    cursor: pointer;
+.opentasks1{
+  grid-column-start:3; 
+  grid-column-end:4; 
+  grid-row-start:1; 
+  grid-row-end:2; 
+  align-self: center;
+  justify-self: center;
+  font-weight: bold;
 }
 
-a {
-    /* Places underlines below the descenders */
-    text-underline-position: under;
-    /* Sets the thickness as a percentage of the font size */
-    text-decoration-thickness: 8;
+.opentasks2{
+  grid-column-start:3; 
+  grid-column-end:4; 
+  grid-row-start:2; 
+  grid-row-end:3; 
+  align-self: center;
+  justify-self: center;
+  
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  html {
-        scroll-behavior: smooth;
-  }
+.copy{
+  grid-column-start:1; 
+  grid-column-end:4; 
+  grid-row-start:3; 
+  grid-row-end:4; 
+  align-self: center;
+  justify-self: center;
+  font-style: italic;
 }
 
-:focus:not(:focus-visible) {
-    outline: none;
-}
